@@ -1,10 +1,9 @@
 class Pagamento:
     def __init__(self, pessoa, valor, data_pagamento):
-
         self._pessoa = pessoa
         self._valor = valor
         self._data_pagamento = data_pagamento
-        self.proximo = None
+        self.proximo = None  
 
     def get_resumo(self):
         nome, categoria, curso = self._pessoa.get_info()
