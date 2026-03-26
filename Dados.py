@@ -21,7 +21,7 @@ PRODUTOS_PRECOS = {
 
 def listar_menu_produtos():
     nomes = list(PRODUTOS_PRECOS.keys())
-    print("\n--- Produtos disponíveis ---")
+    print("\nProdutos disponíveis: \n")
     for i, nome in enumerate(nomes, 1):
         print(f"{i}. {nome}")
     escolha = input("Escolha o número do produto: ")
@@ -61,7 +61,6 @@ def gerar_pessoas(quantidade=5):
         curso = random.choice(cursos)
         pessoas.append(Pessoa(nome, categoria, curso))
 
-    print(f"{quantidade} pessoas geradas com sucesso!")
     return pessoas
 
 def gerar_vendas(fila_estoque, pilha_pagamentos, quantidade=5):
@@ -82,7 +81,7 @@ def gerar_vendas(fila_estoque, pilha_pagamentos, quantidade=5):
             atual = atual.proximo
 
         if not lotes_disponiveis:
-            print("Estoque insuficiente para gerar mais vendas.")
+            print("\nEstoque insuficiente para gerar mais vendas.")
             break
 
         # Escolhe entre 1 e 3 produtos diferentes para a venda
@@ -102,7 +101,7 @@ def gerar_vendas(fila_estoque, pilha_pagamentos, quantidade=5):
         pilha_pagamentos.empilhar(pagamento)
         vendas_geradas += 1
 
-    print(f"{vendas_geradas} vendas geradas com sucesso!")
+    
 
     
  
@@ -123,7 +122,6 @@ def salvar_dados(fila_estoque, pilha_pagamentos, caminho="dados_cantina.pkl"):
     }
     with open(caminho, "wb") as f:
         pickle.dump(dados, f)
-    print(f"Dados salvos em '{caminho}'.")
 
 
 def carregar_dados(caminho="dados_cantina.pkl"):
